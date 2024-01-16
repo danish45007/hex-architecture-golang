@@ -10,6 +10,6 @@ service ArithmeticService {
 	rpc GetAddition(OperationParameters) returns (Answer){};
 	rpc GetSubtraction(OperationParameters) returns (Answer){};
 	rpc GetMultiplication(OperationParameters) returns (Answer){};
-	rpc GetDivison(OperationParameters) returns (Answer){};
+	rpc GetDivision(OperationParameters) returns (Answer){};
 
 }

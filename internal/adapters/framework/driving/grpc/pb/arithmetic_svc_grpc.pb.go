@@ -21,7 +21,7 @@ type ArithmeticServiceClient interface {
 	GetAddition(ctx context.Context, in *OperationParameters, opts ...grpc.CallOption) (*Answer, error)
 	GetSubtraction(ctx context.Context, in *OperationParameters, opts ...grpc.CallOption) (*Answer, error)
 	GetMultiplication(ctx context.Context, in *OperationParameters, opts ...grpc.CallOption) (*Answer, error)
-	GetDivison(ctx context.Context, in *OperationParameters, opts ...grpc.CallOption) (*Answer, error)
+	GetDivision(ctx context.Context, in *OperationParameters, opts ...grpc.CallOption) (*Answer, error)
 }
 
 type arithmeticServiceClient struct {
@@ -59,9 +59,9 @@ func (c *arithmeticServiceClient) GetMultiplication(ctx context.Context, in *Ope
 	return out, nil
 }
 
-func (c *arithmeticServiceClient) GetDivison(ctx context.Context, in *OperationParameters, opts ...grpc.CallOption) (*Answer, error) {
+func (c *arithmeticServiceClient) GetDivision(ctx context.Context, in *OperationParameters, opts ...grpc.CallOption) (*Answer, error) {
 	out := new(Answer)
-	err := c.cc.Invoke(ctx, "/pb.ArithmeticService/GetDivison", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pb.ArithmeticService/GetDivision", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +75,7 @@ type ArithmeticServiceServer interface {
 	GetAddition(context.Context, *OperationParameters) (*Answer, error)
 	GetSubtraction(context.Context, *OperationParameters) (*Answer, error)
 	GetMultiplication(context.Context, *OperationParameters) (*Answer, error)
-	GetDivison(context.Context, *OperationParameters) (*Answer, error)
+	GetDivision(context.Context, *OperationParameters) (*Answer, error)
 }
 
 // UnimplementedArithmeticServiceServer should be embedded to have forward compatible implementations.
@@ -91,8 +91,8 @@ func (UnimplementedArithmeticServiceServer) GetSubtraction(context.Context, *Ope
 func (UnimplementedArithmeticServiceServer) GetMultiplication(context.Context, *OperationParameters) (*Answer, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetMultiplication not implemented")
 }
-func (UnimplementedArithmeticServiceServer) GetDivison(context.Context, *OperationParameters) (*Answer, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetDivison not implemented")
+func (UnimplementedArithmeticServiceServer) GetDivision(context.Context, *OperationParameters) (*Answer, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetDivision not implemented")
 }
 
 // UnsafeArithmeticServiceServer may be embedded to opt out of forward compatibility for this service.
@@ -166,14 +166,14 @@ func _ArithmeticService_GetDivison_Handler(srv interface{}, ctx context.Context,
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ArithmeticServiceServer).GetDivison(ctx, in)
+		return srv.(ArithmeticServiceServer).GetDivision(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/pb.ArithmeticService/GetDivison",
+		FullMethod: "/pb.ArithmeticService/GetDivision",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArithmeticServiceServer).GetDivison(ctx, req.(*OperationParameters))
+		return srv.(ArithmeticServiceServer).GetDivision(ctx, req.(*OperationParameters))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -198,7 +198,7 @@ var ArithmeticService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ArithmeticService_GetMultiplication_Handler,
 		},
 		{
-			MethodName: "GetDivison",
+			MethodName: "GetDivision",
 			Handler:    _ArithmeticService_GetDivison_Handler,
 		},
 	},

@@ -69,7 +69,7 @@ func (grpca Adapter) GetMultiplication(ctx context.Context, req *pb.OperationPar
 	return ans, nil
 }
 
-func (grpca Adapter) GetDivison(ctx context.Context, req *pb.OperationParameters) (*pb.Answer, error) {
+func (grpca Adapter) GetDivision(ctx context.Context, req *pb.OperationParameters) (*pb.Answer, error) {
 	var err error
 	ans := &pb.Answer{}
 	if req.GetA() == 0 || req.GetB() == 0 {

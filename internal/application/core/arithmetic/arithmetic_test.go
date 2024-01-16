@@ -7,7 +7,7 @@ import (
 )
 
 func TestAddition(t *testing.T) {
-	arith := NewAdapter()
+	arith := New()
 	ans, err := arith.Addition(1, 1)
 	if err != nil {
 		t.Fatalf("expected %v but got %v", nil, err)
@@ -17,7 +17,7 @@ func TestAddition(t *testing.T) {
 }
 
 func TestSubtraction(t *testing.T) {
-	arith := NewAdapter()
+	arith := New()
 	ans, err := arith.Subtraction(2, 1)
 	if err != nil {
 		t.Fatalf("expected %v but got %v", nil, err)
@@ -27,7 +27,7 @@ func TestSubtraction(t *testing.T) {
 }
 
 func TestMultiplication(t *testing.T) {
-	arith := NewAdapter()
+	arith := New()
 	ans, err := arith.Multiplication(2, 2)
 	if err != nil {
 		t.Fatalf("expected %v but got %v", nil, err)
@@ -37,7 +37,7 @@ func TestMultiplication(t *testing.T) {
 }
 
 func TestDivision(t *testing.T) {
-	arith := NewAdapter()
+	arith := New()
 	ans, err := arith.Division(10, 5)
 	if err != nil {
 		t.Fatalf("expected %v but got %v", nil, err)

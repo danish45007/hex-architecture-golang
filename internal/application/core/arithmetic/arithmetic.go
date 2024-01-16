@@ -2,7 +2,7 @@ package arithmetic
 
 type Adapter struct{}
 
-func NewAdapter() *Adapter {
+func New() *Adapter {
 	return &Adapter{}
 }
 
